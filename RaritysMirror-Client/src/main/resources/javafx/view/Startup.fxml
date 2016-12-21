@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <StackPane BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+				<HBox>
+					<children>
+						<Label text="IP:">
+							<padding>
+								<Insets left="4.0" top="4.0" />
+							</padding>
+						</Label>
+						<TextField fx:id="ipTextField" promptText="localhost" />
+					</children>
+				</HBox>
+				<Button alignment="CENTER" mnemonicParsing="false" text="Connect" />
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+      		<ImageView fitHeight="32.0" fitWidth="32.0" nodeOrientation="INHERIT" onMouseClicked="#optionsOnClick" pickOnBounds="true" preserveRatio="true">
+      			<image>
+      				<Image url="@images/Options.png" />
+      			</image>
+      			<cursor>
+      				<Cursor fx:constant="HAND" />
+      			</cursor>
+      		</ImageView>
+      		<ScrollPane fx:id="optionsScrollPane" hbarPolicy="NEVER" visible="False">
+               <content>
+                  <VBox>
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label text="Port:">
+                                 <padding>
+                                    <Insets left="4.0" top="4.0" />
+                                 </padding>
+                              </Label>
+                              <TextField promptText="1995" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+      		</ScrollPane>
+         </children>
+      </VBox>
+   </right>
+</fx:root>
