@@ -10,24 +10,35 @@ public class Client {
 	private static Socket socket = null;
 	private static ObjectOutputStream oos = null;
 	private static ObjectInputStream ois = null;
-	private static ClientInformation ci = new ClientInformation();
-	
-	public static void main(String[] args) throws ClassNotFoundException, IOException {
-		// TODO: Remove this test function once GUI is set up properly!
-		Client client = new Client();
-		client.connect("localhost", 1995);
-		
-		Message msg = (Message) client.ois.readObject();
-		Message rMsg = new Message();
-		rMsg.setResponse(client.checkRequest(msg.getRequest()));
-		
-		client.oos.writeObject(rMsg);
-	}
+	private static ClientInformation ci;
 	
 	// TODO: Client should be able to choose a name.
 	// TODO: Add fullscreen mode.
 	
-	public static void connect(String ip, int port) {
+	public static void connect(String ip, int port, ClientInformation ci) {
+		Client.ci = ci;
+		startConnection(ip, port);
+		
+		run();
+	}
+	
+	private static void run() {
+		try {
+			Message msg = (Message) ois.readObject();
+			Message rMsg = new Message();
+			rMsg.setResponse(msg.getRequest());
+			rMsg.setRequest(checkRequest(msg.getRequest(), msg.getResponse()));
+			
+			Client.oos.writeObject(rMsg);
+		} catch (ClassNotFoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		run();
+	}
+	
+	private static void startConnection(String ip, int port) {
 		if(socket != null)
 			return;
 		
@@ -44,12 +55,20 @@ public class Client {
 		}
 	}
 	
-	private String checkRequest(String request) {
+	private static String checkRequest(String request, String response) {
 		if(request == null)
 			return null;
 		
 		if(request.equals("version"))
 			return ci.getVersion();
+		
+		if(request.equals("name"))
+			return ci.getName();
+		
+		if(request.equals("setName")) {
+			ci.setName(response);
+			return response;
+		}
 		
 		throw new IllegalArgumentException("Tried to do an illegal request: " + request);
 	}
