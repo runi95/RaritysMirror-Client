@@ -1,13 +1,17 @@
 package javafx;
 
 import javafx.application.Application;
+import javafx.model.StartupModel;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.view.Startup;
+import javafx.view.StartupView;
 
-public class MyApplication extends Application {
+public class Main extends Application {
+	public static void main(String[] args) {
+		Main.launch(args);
+	}
 
 		private static int width, height;
 		private Scene scene;
@@ -61,7 +65,10 @@ public class MyApplication extends Application {
 		}
 		
 		private void setStartScene(Stage stage) {
-			root.getChildren().add(new Startup());
+			StartupView view = new StartupView();
+			view.initModel(new StartupModel());
+			
+			root.getChildren().add(view);
 			
 			scene = new Scene(root, width, height);
 //			scene.getStylesheets().add("javafx/view/fxml/css/style.css");

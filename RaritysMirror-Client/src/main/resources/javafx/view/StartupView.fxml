@@ -43,12 +43,12 @@
                         </VBox>
                         <VBox>
                            <children>
-                              <TextField fx:id="ipTextField11" promptText="1995" />
+                              <TextField fx:id="portTextField" promptText="1995" />
                            </children>
                         </VBox>
                      </children>
                   </HBox>
-						<Button alignment="CENTER" mnemonicParsing="false" text="Connect" />
+						<Button alignment="CENTER" mnemonicParsing="false" onAction="#ConnectButtonClicked" text="Connect" />
 					</children>
 				</VBox>
 			</children>
