@@ -7,57 +7,51 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <left>
-      <StackPane BorderPane.alignment="CENTER" />
-   </left>
-   <center>
-      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-         <children>
-				<HBox>
+<fx:root type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<center>
+		<HBox BorderPane.alignment="CENTER">
+			<children>
+				<VBox spacing="4.0">
 					<children>
-						<Label text="IP:">
+						<Label text="Name:">
 							<padding>
-								<Insets left="4.0" top="4.0" />
+								<Insets left="4.0" right="4.0" top="4.0" />
 							</padding>
 						</Label>
-						<TextField fx:id="ipTextField" promptText="localhost" />
+						<Label text="IP:">
+							<padding>
+								<Insets left="4.0" right="4.0" top="4.0" />
+							</padding>
+						</Label>
 					</children>
-				</HBox>
-				<Button alignment="CENTER" mnemonicParsing="false" text="Connect" />
-         </children>
-      </VBox>
-   </center>
-   <right>
-      <VBox BorderPane.alignment="CENTER">
-         <children>
-      		<ImageView fitHeight="32.0" fitWidth="32.0" nodeOrientation="INHERIT" onMouseClicked="#optionsOnClick" pickOnBounds="true" preserveRatio="true">
-      			<image>
-      				<Image url="@images/Options.png" />
-      			</image>
-      			<cursor>
-      				<Cursor fx:constant="HAND" />
-      			</cursor>
-      		</ImageView>
-      		<ScrollPane fx:id="optionsScrollPane" hbarPolicy="NEVER" visible="False">
-               <content>
-                  <VBox>
+				</VBox>
+				<VBox>
+					<children>
+						<TextField fx:id="ipTextField1" />
+						<TextField fx:id="ipTextField" promptText="localhost" />
+						<Hyperlink fx:id="advancedSettingsHyperlink" onAction="#advancedSettingsClicked" text="Advanced Settings ↓" />
+                  <HBox fx:id="advancedSettingsHBox" maxHeight="0.0" minHeight="0.0" visible="false">
                      <children>
-                        <HBox>
+                        <VBox>
                            <children>
                               <Label text="Port:">
                                  <padding>
-                                    <Insets left="4.0" top="4.0" />
+                                    <Insets left="4.0" right="4.0" top="4.0" />
                                  </padding>
                               </Label>
-                              <TextField promptText="1995" />
                            </children>
-                        </HBox>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <TextField fx:id="ipTextField11" promptText="1995" />
+                           </children>
+                        </VBox>
                      </children>
-                  </VBox>
-               </content>
-      		</ScrollPane>
-         </children>
-      </VBox>
-   </right>
+                  </HBox>
+						<Button alignment="CENTER" mnemonicParsing="false" text="Connect" />
+					</children>
+				</VBox>
+			</children>
+		</HBox>
+	</center>
 </fx:root>
