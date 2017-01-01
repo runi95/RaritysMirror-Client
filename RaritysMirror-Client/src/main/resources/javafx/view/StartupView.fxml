@@ -27,7 +27,7 @@
 				</VBox>
 				<VBox>
 					<children>
-						<TextField fx:id="ipTextField1" />
+						<TextField fx:id="nameTextField" />
 						<TextField fx:id="ipTextField" promptText="localhost" />
 						<Hyperlink fx:id="advancedSettingsHyperlink" onAction="#advancedSettingsClicked" text="Advanced Settings ↓" />
                   <HBox fx:id="advancedSettingsHBox" maxHeight="0.0" minHeight="0.0" visible="false">

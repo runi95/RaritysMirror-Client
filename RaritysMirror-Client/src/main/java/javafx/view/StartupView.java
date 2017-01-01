@@ -1,6 +1,7 @@
 package javafx.view;
 
 import backend.Client;
+import backend.ClientInformation;
 import javafx.Resources;
 import javafx.fxml.FXML;
 import javafx.model.StartupModel;
@@ -13,6 +14,9 @@ import javafx.scene.layout.HBox;
 public class StartupView extends BorderPane  {
 	
 	StartupModel model;
+	
+	@FXML
+	TextField nameTextField;
 	
 	@FXML
 	TextField ipTextField;
@@ -52,7 +56,9 @@ public class StartupView extends BorderPane  {
 		if(checkIp(ip) && checkPort(port))
 			return;
 			
-		Client.connect(ip, port);
+		ClientInformation ci = new ClientInformation();
+		ci.setName(nameTextField.getText());
+		Client.connect(ip, port, ci);
 	}
 	
 	private boolean checkIp(String ip) {
