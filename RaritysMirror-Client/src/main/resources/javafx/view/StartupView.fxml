@@ -32,18 +32,27 @@
 						<Hyperlink fx:id="advancedSettingsHyperlink" onAction="#advancedSettingsClicked" text="Advanced Settings ↓" />
                   <HBox fx:id="advancedSettingsHBox" maxHeight="0.0" minHeight="0.0" visible="false">
                      <children>
-                        <VBox>
+                        <VBox spacing="4.0">
                            <children>
                               <Label text="Port:">
                                  <padding>
                                     <Insets left="4.0" right="4.0" top="4.0" />
                                  </padding>
                               </Label>
+                              <Label text="Offline Mode:">
+                                 <padding>
+                                    <Insets left="4.0" right="4.0" top="4.0" />
+                                 </padding>
+                                 <tooltip>
+                                    <Tooltip text="Disabled until further updates!" />
+                                 </tooltip>
+                              </Label>
                            </children>
                         </VBox>
                         <VBox>
                            <children>
                               <TextField fx:id="portTextField" promptText="1995" />
+                              <CheckBox disable="true" mnemonicParsing="false" selected="true" />
                            </children>
                         </VBox>
                      </children>
