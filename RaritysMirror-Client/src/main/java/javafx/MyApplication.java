@@ -33,16 +33,18 @@ public class MyApplication extends Application {
 		}
 		
 		private void startValues(Stage stage) {
-			width = 1280;
-			height = 768;
+			width = 300;
+			height = 150;
 			
 			stage.setTitle("Rarity's Mirror - Client");
 //			stage.getIcons().addAll(new Image("/server/ui/resources/images/ui/icon.png"), new Image("/server/ui/resources/images/ui/icon.icns"));
 		}
 		
+		/*
 		private void setListeners() {
 			
 		}
+		*/
 		
 		private void setFullscreenMode(boolean f, Stage stage) {
 			if(f) {
