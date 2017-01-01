@@ -37,7 +37,7 @@ public class Main extends Application {
 		}
 		
 		private void startValues(Stage stage) {
-			width = 300;
+			width = 320;
 			height = 150;
 			
 			stage.setTitle("Rarity's Mirror - Client");
