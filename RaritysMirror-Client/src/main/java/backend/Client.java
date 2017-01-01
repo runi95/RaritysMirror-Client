@@ -7,10 +7,10 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class Client {
-	Socket socket = null;
-	ObjectOutputStream oos = null;
-	ObjectInputStream ois = null;
-	ClientInformation ci = new ClientInformation();
+	private static Socket socket = null;
+	private static ObjectOutputStream oos = null;
+	private static ObjectInputStream ois = null;
+	private static ClientInformation ci = new ClientInformation();
 	
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		// TODO: Remove this test function once GUI is set up properly!
@@ -27,7 +27,7 @@ public class Client {
 	// TODO: Client should be able to choose a name.
 	// TODO: Add fullscreen mode.
 	
-	public void connect(String ip, int port) {
+	public static void connect(String ip, int port) {
 		if(socket != null)
 			return;
 		
